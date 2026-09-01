@@ -1,3 +1,8 @@
+## 3.8.10.6
+- Open curriculum Watch video actions in an accessible in-page YouTube modal instead of navigating away.
+- Add keyboard Escape/backdrop close behavior and privacy-enhanced youtube-nocookie embeds.
+- Rebuild child CSS/JS under a new theme version for deterministic cache refresh.
+
 ## 3.8.10 - 2026-08-31
 - Compatibility rebuild for WP BBTheme parent 3.8.10 shared FAQ, Blog search, Polylang translation repair, mega-menu hover bridge and single-post duplicate-image fixes.
 - No sector-specific Woo Support changes; WP Theme Woo Support remains unchanged at 3.4.0.
