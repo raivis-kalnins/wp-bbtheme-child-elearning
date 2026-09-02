@@ -1,23 +1,273 @@
 @use 'tokens' as *;
-body.wp-theme-sector-courses{background:$surface}
-body.wp-theme-sector-courses .wpbb-swiper--hero{background:$soft}
-body.wp-theme-sector-courses .wpbb-swiper--hero .wpbb-swiper-slide__media{background:#fff}
-body.wp-theme-sector-courses .wp-theme-industries-section{background:$dark;color:$footer-text}
-body.wp-theme-sector-courses .wp-theme-industries-section h2,body.wp-theme-sector-courses .wp-theme-industries-section h3{color:#fff}
-.wpbb-sector-finder{margin:0 auto;padding:34px;border:1px solid $border;border-radius:$radius-lg;background:#fff;box-shadow:$shadow-soft}
-.wpbb-sector-finder__intro{max-width:760px;margin-bottom:24px}.wpbb-sector-finder__intro h2{margin:5px 0 10px;font-size:clamp(30px,4vw,48px)}
-.wpbb-sector-finder__form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:end;padding:20px;border-radius:$radius;background:$soft}
-.wpbb-sector-finder__field{display:grid;gap:7px;margin:0}.wpbb-sector-finder__field span{color:$heading;font-size:12px;font-weight:800}
-.wpbb-sector-finder__field input,.wpbb-sector-finder__field select{width:100%;min-height:48px;padding:0 13px;border:1px solid $border;border-radius:10px;background:#fff;color:$ink}
-.wpbb-sector-finder__actions{display:flex;gap:8px;align-items:center}.wpbb-sector-finder__actions .btn{min-height:48px}
-.wpbb-sector-finder__results{margin-top:28px;transition:opacity .18s ease}.wpbb-sector-finder__results.is-loading{opacity:.45}
-.wpbb-sector-finder__results-head{display:flex;gap:8px;align-items:baseline;margin:0 0 16px;color:$muted}.wpbb-sector-finder__results-head strong{color:$heading;font-size:20px}
-.wpbb-sector-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.wpbb-sector-card{overflow:hidden;border:1px solid $border;border-radius:$radius;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.05)}
-.wpbb-sector-card__media{display:block;aspect-ratio:16/10;overflow:hidden;background:$soft}.wpbb-sector-card__media img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}.wpbb-sector-card:hover img{transform:scale(1.025)}
-.wpbb-sector-card__body{padding:22px}.wpbb-sector-card__body h3{margin:5px 0 8px;font-size:22px}.wpbb-sector-card__body h3 a{color:$heading;text-decoration:none}.wpbb-sector-card__body>p:not(.wp-theme-sector-eyebrow){color:$muted}
-.wpbb-sector-card__meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px 0}.wpbb-sector-card__meta span{padding:10px;border-radius:10px;background:$soft}.wpbb-sector-card__meta small,.wpbb-sector-card__meta strong{display:block}.wpbb-sector-card__meta small{color:$muted;font-size:10px;text-transform:uppercase}.wpbb-sector-card__meta strong{margin-top:3px;color:$heading;font-size:13px}
-.wpbb-sector-card__link{color:$primary;font-weight:800;text-decoration:none}.wpbb-sector-finder__empty{padding:34px;border:1px dashed $border;border-radius:$radius;background:$soft;text-align:center}
-.wpbb-sector-single{padding:54px 0 90px}.wpbb-sector-single__hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:44px;align-items:start}.wpbb-sector-single__media img{width:100%;border-radius:$radius-lg;box-shadow:$shadow-soft}.wpbb-sector-single__facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:22px 0}.wpbb-sector-single__facts div{padding:14px;border:1px solid $border;border-radius:12px;background:$soft}.wpbb-sector-single__facts small,.wpbb-sector-single__facts strong{display:block}.wpbb-sector-single__facts small{color:$muted;font-size:11px;text-transform:uppercase}.wpbb-sector-request{margin-top:38px;padding:28px;border:1px solid $border;border-radius:$radius-lg;background:$soft}.wpbb-sector-request form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.wpbb-sector-request label{display:grid;gap:6px}.wpbb-sector-request label.is-wide{grid-column:1/-1}.wpbb-sector-request input,.wpbb-sector-request select,.wpbb-sector-request textarea{width:100%;min-height:48px;padding:12px;border:1px solid $border;border-radius:10px;background:#fff}.wpbb-sector-request textarea{min-height:130px}.wpbb-sector-request button{grid-column:1/-1;justify-self:start}
-.wpbb-sector-proof-band{padding:18px 0 0}.wpbb-sector-proof-band .wpbb-row{align-items:stretch}.wpbb-sector-proof-card{height:100%;padding:20px;border:1px solid $border;border-radius:$radius;background:#fff}
-@media(max-width:991.98px){.wpbb-sector-finder__form{grid-template-columns:repeat(2,minmax(0,1fr))}.wpbb-sector-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wpbb-sector-single__hero{grid-template-columns:1fr}}
-@media(max-width:575.98px){.wpbb-sector-finder{padding:20px}.wpbb-sector-finder__form,.wpbb-sector-grid,.wpbb-sector-request form{grid-template-columns:1fr}.wpbb-sector-finder__actions{flex-direction:column;align-items:stretch}.wpbb-sector-single__facts{grid-template-columns:1fr}}
+ body.wp-theme-sector-courses {
+  background:$surface
+}
+ body.wp-theme-sector-courses .wpbb-swiper--hero {
+  background:$soft
+}
+ body.wp-theme-sector-courses .wpbb-swiper--hero .wpbb-swiper-slide__media {
+  background:#fff
+}
+ body.wp-theme-sector-courses .wp-theme-industries-section {
+  background:$dark;
+  color:$footer-text
+}
+ body.wp-theme-sector-courses .wp-theme-industries-section h2,body.wp-theme-sector-courses .wp-theme-industries-section h3 {
+  color:#fff
+}
+ .wpbb-sector-finder {
+  margin:0 auto;
+  padding:34px;
+  border:1px solid $border;
+  border-radius:$radius-lg;
+  background:#fff;
+  box-shadow:$shadow-soft
+}
+ .wpbb-sector-finder__intro {
+  max-width:760px;
+  margin-bottom:24px
+}
+.wpbb-sector-finder__intro h2 {
+  margin:5px 0 10px;
+  font-size:4vw
+}
+ .wpbb-sector-finder__form {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  align-items:end;
+  padding:20px;
+  border-radius:$radius;
+  background:$soft
+}
+ .wpbb-sector-finder__field {
+  display:grid;
+  gap:7px;
+  margin:0
+}
+.wpbb-sector-finder__field span {
+  color:$heading;
+  font-size:12px;
+  font-weight:800
+}
+ .wpbb-sector-finder__field input,.wpbb-sector-finder__field select {
+  width:100%;
+  min-height:48px;
+  padding:0 13px;
+  border:1px solid $border;
+  border-radius:10px;
+  background:#fff;
+  color:$ink
+}
+ .wpbb-sector-finder__actions {
+  display:flex;
+  gap:8px;
+  align-items:center
+}
+.wpbb-sector-finder__actions .btn {
+  min-height:48px
+}
+ .wpbb-sector-finder__results {
+  margin-top:28px;
+  transition:opacity .18s ease
+}
+.wpbb-sector-finder__results.is-loading {
+  opacity:.45
+}
+ .wpbb-sector-finder__results-head {
+  display:flex;
+  gap:8px;
+  align-items:baseline;
+  margin:0 0 16px;
+  color:$muted
+}
+.wpbb-sector-finder__results-head strong {
+  color:$heading;
+  font-size:20px
+}
+ .wpbb-sector-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px
+}
+.wpbb-sector-card {
+  overflow:hidden;
+  border:1px solid $border;
+  border-radius:$radius;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(15,23,42,.05)
+}
+ .wpbb-sector-card__media {
+  display:block;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:$soft
+}
+.wpbb-sector-card__media img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .25s ease
+}
+.wpbb-sector-card:hover img {
+  transform:scale(1.025)
+}
+ .wpbb-sector-card__body {
+  padding:22px
+}
+.wpbb-sector-card__body h3 {
+  margin:5px 0 8px;
+  font-size:22px
+}
+.wpbb-sector-card__body h3 a {
+  color:$heading;
+  text-decoration:none
+}
+.wpbb-sector-card__body>p:not(.wp-theme-sector-eyebrow) {
+  color:$muted
+}
+ .wpbb-sector-card__meta {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin:18px 0
+}
+.wpbb-sector-card__meta span {
+  padding:10px;
+  border-radius:10px;
+  background:$soft
+}
+.wpbb-sector-card__meta small,.wpbb-sector-card__meta strong {
+  display:block
+}
+.wpbb-sector-card__meta small {
+  color:$muted;
+  font-size:10px;
+  text-transform:uppercase
+}
+.wpbb-sector-card__meta strong {
+  margin-top:3px;
+  color:$heading;
+  font-size:13px
+}
+ .wpbb-sector-card__link {
+  color:$primary;
+  font-weight:800;
+  text-decoration:none
+}
+.wpbb-sector-finder__empty {
+  padding:34px;
+  border:1px dashed $border;
+  border-radius:$radius;
+  background:$soft;
+  text-align:center
+}
+ .wpbb-sector-single {
+  padding:54px 0 90px
+}
+.wpbb-sector-single__hero {
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+  gap:44px;
+  align-items:start
+}
+.wpbb-sector-single__media img {
+  width:100%;
+  border-radius:$radius-lg;
+  box-shadow:$shadow-soft
+}
+.wpbb-sector-single__facts {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin:22px 0
+}
+.wpbb-sector-single__facts div {
+  padding:14px;
+  border:1px solid $border;
+  border-radius:12px;
+  background:$soft
+}
+.wpbb-sector-single__facts small,.wpbb-sector-single__facts strong {
+  display:block
+}
+.wpbb-sector-single__facts small {
+  color:$muted;
+  font-size:11px;
+  text-transform:uppercase
+}
+.wpbb-sector-request {
+  margin-top:38px;
+  padding:28px;
+  border:1px solid $border;
+  border-radius:$radius-lg;
+  background:$soft
+}
+.wpbb-sector-request form {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.wpbb-sector-request label {
+  display:grid;
+  gap:6px
+}
+.wpbb-sector-request label.is-wide {
+  grid-column:1/-1
+}
+.wpbb-sector-request input,.wpbb-sector-request select,.wpbb-sector-request textarea {
+  width:100%;
+  min-height:48px;
+  padding:12px;
+  border:1px solid $border;
+  border-radius:10px;
+  background:#fff
+}
+.wpbb-sector-request textarea {
+  min-height:130px
+}
+.wpbb-sector-request button {
+  grid-column:1/-1;
+  justify-self:start
+}
+ .wpbb-sector-proof-band {
+  padding:18px 0 0
+}
+.wpbb-sector-proof-band .wpbb-row {
+  align-items:stretch
+}
+.wpbb-sector-proof-card {
+  height:100%;
+  padding:20px;
+  border:1px solid $border;
+  border-radius:$radius;
+  background:#fff
+}
+ @media(max-width:991.98px) {
+  .wpbb-sector-finder__form {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .wpbb-sector-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .wpbb-sector-single__hero {
+    grid-template-columns:1fr
+  }
+
+}
+ @media(max-width:575.98px) {
+  .wpbb-sector-finder {
+    padding:20px
+  }
+  .wpbb-sector-finder__form,.wpbb-sector-grid,.wpbb-sector-request form {
+    grid-template-columns:1fr
+  }
+  .wpbb-sector-finder__actions {
+    flex-direction:column;
+    align-items:stretch
+  }
+  .wpbb-sector-single__facts {
+    grid-template-columns:1fr
+  }
+
+}
