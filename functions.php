@@ -91,7 +91,7 @@ function wpbb_courses_demo_attachment( $filename, $title ) {
     $id = wp_insert_attachment( array( 'post_mime_type'=>$filetype['type'] ?: 'image/jpeg', 'post_title'=>$title, 'post_name'=>'wpbb-courses-' . $slug, 'post_status'=>'inherit' ), $target );
     if ( $id && ! is_wp_error( $id ) ) {
         if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) require_once ABSPATH . 'wp-admin/includes/image.php';
-        $meta = wp_generate_attachment_metadata( $id, $target ); if ( $meta ) wp_update_attachment_metadata( $id, $meta ); update_post_meta( $id, '_wp_attachment_image_alt', $title );
+        $meta = wpbb_child_381048_generate_attachment_metadata( $id, $target ); if ( $meta ) wp_update_attachment_metadata( $id, $meta ); update_post_meta( $id, '_wp_attachment_image_alt', $title );
         return (int) $id;
     }
     return 0;
@@ -502,7 +502,7 @@ function wpbb_elearning_demo_blog_photo_attachment( $filename, $title ) {
     ), $target );
     if ( $id && ! is_wp_error( $id ) ) {
         if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) require_once ABSPATH . 'wp-admin/includes/image.php';
-        $meta = wp_generate_attachment_metadata( $id, $target );
+        $meta = wpbb_child_381048_generate_attachment_metadata( $id, $target );
         if ( $meta ) wp_update_attachment_metadata( $id, $meta );
         update_post_meta( $id, '_wp_attachment_image_alt', $title );
         return (int) $id;
@@ -594,7 +594,7 @@ function wpbb_elearning_refresh_bundled_attachment_v381041( $attachment_id, $ass
         }
     }
 
-    $meta = wp_generate_attachment_metadata( $attachment_id, $target );
+    $meta = wpbb_child_381048_generate_attachment_metadata( $attachment_id, $target );
     if ( $meta ) wp_update_attachment_metadata( $attachment_id, $meta );
     clean_attachment_cache( $attachment_id );
     return true;
