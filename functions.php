@@ -141,7 +141,7 @@ add_action( 'wp_theme_seed_sector_pages', 'wpbb_courses_seed_directory', 25 );
 
 function wpbb_courses_after_hero_finder( $content, $profile ) {
     if ( ( $profile['id'] ?? '' ) !== 'courses' ) return $content;
-    return $content . '<!-- wp:group {"className":"wp-theme-section-shell wpbb-courses-finder-section","layout":{"type":"default"}} --><div class="wp-block-group wp-theme-section-shell wpbb-courses-finder-section"><!-- wp:wpbb/row {"containerClass":"container"} --><!-- wp:wpbb/column {"xs":12} --><!-- wp:wpbb/sector-finder {"context":"courses","limit":8} /--><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --></div><!-- /wp:group -->';
+    return $content . '<!-- wp:wpbb/bootstrap-div {"containerClass":"","utilityClasses":"wp-theme-section-shell wpbb-courses-finder-section","className":"wpbb-v62-section"} --><!-- wp:wpbb/row {"containerClass":"container"} --><!-- wp:wpbb/column {"xs":12} --><!-- wp:wpbb/sector-finder {"context":"courses","limit":8} /--><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --><!-- /wp:wpbb/bootstrap-div -->';
 }
 add_filter( 'wp_theme_demo_after_hero_sections', 'wpbb_courses_after_hero_finder', 20, 2 );
 
@@ -429,35 +429,35 @@ if ( ! function_exists( 'wpbb_child_demo_integrity_guard_v381029' ) ) {
         $services = ! empty( $profile['services'] ) && is_array( $profile['services'] ) ? array_slice( $profile['services'], 0, 4 ) : array();
         $stats = ! empty( $profile['stats'] ) && is_array( $profile['stats'] ) ? array_slice( $profile['stats'], 0, 4 ) : array();
 
-        $out = '<!-- wp:group {"className":"wp-theme-section-shell wp-theme-sector-hero wp-theme-demo-repair","layout":{"type":"default"}} --><div class="wp-block-group wp-theme-section-shell wp-theme-sector-hero wp-theme-demo-repair"><!-- wp:wpbb/row {"containerClass":"container","customClasses":"align-items-center"} --><!-- wp:wpbb/column {"xs":12,"lg":6} --><p class="wp-theme-sector-eyebrow">' . esc_html( $eyebrow ) . '</p><h1>' . esc_html( $title ) . '</h1><p class="wp-theme-sector-lead">' . esc_html( $intro ) . '</p><div class="wp-theme-demo-buttons"><a class="btn btn-primary" href="' . esc_url( $primary_url ) . '">' . esc_html( $primary_label ) . '</a><a class="btn btn-outline-primary" href="' . esc_url( $secondary_url ) . '">' . esc_html( $secondary_label ) . '</a></div><!-- /wp:wpbb/column -->';
+        $out = '<!-- wp:wpbb/bootstrap-div {"containerClass":"","utilityClasses":"wp-theme-section-shell wp-theme-sector-hero wp-theme-demo-repair","className":"wpbb-v62-section"} --><!-- wp:wpbb/row {"containerClass":"container","customClasses":"align-items-center"} --><!-- wp:wpbb/column {"xs":12,"lg":6} --><p class="wp-theme-sector-eyebrow">' . esc_html( $eyebrow ) . '</p><h1>' . esc_html( $title ) . '</h1><p class="wp-theme-sector-lead">' . esc_html( $intro ) . '</p><div class="wp-theme-demo-buttons"><a class="btn btn-primary" href="' . esc_url( $primary_url ) . '">' . esc_html( $primary_label ) . '</a><a class="btn btn-outline-primary" href="' . esc_url( $secondary_url ) . '">' . esc_html( $secondary_label ) . '</a></div><!-- /wp:wpbb/column -->';
         if ( $hero_image ) $out .= '<!-- wp:wpbb/column {"xs":12,"lg":6} --><figure class="wp-theme-sector-page-image"><img src="' . $hero_image . '" alt="" loading="eager" decoding="async"></figure><!-- /wp:wpbb/column -->';
-        $out .= '<!-- /wp:wpbb/row --></div><!-- /wp:group -->';
+        $out .= '<!-- /wp:wpbb/row --><!-- /wp:wpbb/bootstrap-div -->';
 
         if ( 'automotive' === ( $profile['id'] ?? '' ) ) {
-            $out .= '<!-- wp:group {"className":"wp-theme-section-shell wpbb-automotive-finder-section","layout":{"type":"default"}} --><div class="wp-block-group wp-theme-section-shell wpbb-automotive-finder-section" id="finder"><!-- wp:wpbb/row {"containerClass":"container"} --><!-- wp:wpbb/column {"xs":12} --><!-- wp:wpbb/sector-finder {"context":"automotive","limit":8} /--><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --></div><!-- /wp:group -->';
+            $out .= '<!-- wp:wpbb/bootstrap-div {"containerClass":"","utilityClasses":"wp-theme-section-shell wpbb-automotive-finder-section","className":"wpbb-v62-section"} --><!-- wp:wpbb/row {"containerClass":"container"} --><!-- wp:wpbb/column {"xs":12} --><!-- wp:wpbb/sector-finder {"context":"automotive","limit":8} /--><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --><!-- /wp:wpbb/bootstrap-div -->';
         }
 
-        $out .= '<!-- wp:group {"className":"wp-theme-section-shell wp-theme-services-section","layout":{"type":"default"}} --><div class="wp-block-group wp-theme-section-shell wp-theme-services-section"><!-- wp:wpbb/row {"containerClass":"container"} --><!-- wp:wpbb/column {"xs":12} --><p class="wp-theme-sector-eyebrow">' . esc_html( (string) ( $profile['services_eyebrow'] ?? __( 'Services', 'wp-theme' ) ) ) . '</p><h2>' . esc_html( $services_heading ) . '</h2><!-- wp:wpbb/row {"gutterX":"gx-4","gutterY":"gy-4"} -->';
+        $out .= '<!-- wp:wpbb/bootstrap-div {"containerClass":"","utilityClasses":"wp-theme-section-shell wp-theme-services-section","className":"wpbb-v62-section"} --><!-- wp:wpbb/row {"containerClass":"container"} --><!-- wp:wpbb/column {"xs":12} --><p class="wp-theme-sector-eyebrow">' . esc_html( (string) ( $profile['services_eyebrow'] ?? __( 'Services', 'wp-theme' ) ) ) . '</p><h2>' . esc_html( $services_heading ) . '</h2><!-- wp:wpbb/row {"gutterX":"gx-4","gutterY":"gy-4"} -->';
         foreach ( $services as $service ) {
             $service_title = is_array( $service ) ? (string) ( $service[0] ?? '' ) : '';
             $service_text = is_array( $service ) ? (string) ( $service[1] ?? '' ) : '';
             if ( '' === trim( $service_title ) ) continue;
             $out .= '<!-- wp:wpbb/column {"xs":12,"md":6,"lg":3} --><article class="wp-theme-sector-card"><h3>' . esc_html( $service_title ) . '</h3><p>' . esc_html( $service_text ) . '</p></article><!-- /wp:wpbb/column -->';
         }
-        $out .= '<!-- /wp:wpbb/row --><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --></div><!-- /wp:group -->';
+        $out .= '<!-- /wp:wpbb/row --><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --><!-- /wp:wpbb/bootstrap-div -->';
 
-        $out .= '<!-- wp:group {"className":"wp-theme-section-shell wp-theme-about-section","layout":{"type":"default"}} --><div class="wp-block-group wp-theme-section-shell wp-theme-about-section"><!-- wp:wpbb/row {"containerClass":"container","customClasses":"align-items-center"} -->';
+        $out .= '<!-- wp:wpbb/bootstrap-div {"containerClass":"","utilityClasses":"wp-theme-section-shell wp-theme-about-section","className":"wpbb-v62-section"} --><!-- wp:wpbb/row {"containerClass":"container","customClasses":"align-items-center"} -->';
         if ( $about_image ) $out .= '<!-- wp:wpbb/column {"xs":12,"lg":6} --><figure class="wp-theme-sector-page-image"><img src="' . $about_image . '" alt="" loading="lazy" decoding="async"></figure><!-- /wp:wpbb/column -->';
-        $out .= '<!-- wp:wpbb/column {"xs":12,"lg":6} --><p class="wp-theme-sector-eyebrow">' . esc_html( (string) ( $profile['about_eyebrow'] ?? __( 'About', 'wp-theme' ) ) ) . '</p><h2>' . esc_html( $about_title ) . '</h2><p class="wp-theme-sector-lead">' . esc_html( $about_text ) . '</p><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --></div><!-- /wp:group -->';
+        $out .= '<!-- wp:wpbb/column {"xs":12,"lg":6} --><p class="wp-theme-sector-eyebrow">' . esc_html( (string) ( $profile['about_eyebrow'] ?? __( 'About', 'wp-theme' ) ) ) . '</p><h2>' . esc_html( $about_title ) . '</h2><p class="wp-theme-sector-lead">' . esc_html( $about_text ) . '</p><!-- /wp:wpbb/column --><!-- /wp:wpbb/row --><!-- /wp:wpbb/bootstrap-div -->';
 
         if ( $stats ) {
-            $out .= '<!-- wp:group {"className":"wp-theme-section-shell wp-theme-sector-proof","layout":{"type":"default"}} --><div class="wp-block-group wp-theme-section-shell wp-theme-sector-proof"><!-- wp:wpbb/row {"containerClass":"container","gutterX":"gx-3","gutterY":"gy-3"} -->';
+            $out .= '<!-- wp:wpbb/bootstrap-div {"containerClass":"","utilityClasses":"wp-theme-section-shell wp-theme-sector-proof","className":"wpbb-v62-section"} --><!-- wp:wpbb/row {"containerClass":"container","gutterX":"gx-3","gutterY":"gy-3"} -->';
             foreach ( $stats as $stat ) {
                 $number = is_array( $stat ) ? (string) ( $stat[0] ?? '' ) : '';
                 $label = is_array( $stat ) ? (string) ( $stat[1] ?? '' ) : '';
                 $out .= '<!-- wp:wpbb/column {"xs":6,"lg":3} --><div class="wp-theme-sector-proof__item"><h3>' . esc_html( $number ) . '</h3><p>' . esc_html( $label ) . '</p></div><!-- /wp:wpbb/column -->';
             }
-            $out .= '<!-- /wp:wpbb/row --></div><!-- /wp:group -->';
+            $out .= '<!-- /wp:wpbb/row --><!-- /wp:wpbb/bootstrap-div -->';
         }
 
         $out .= '<!-- wp:wpbb/cta-section {"title":"' . esc_attr( (string) ( $profile['cta_title'] ?? __( 'Ready to make it yours?', 'wp-theme' ) ) ) . '","titleTag":"h2","text":"' . esc_attr( (string) ( $profile['cta_text'] ?? $intro ) ) . '","buttonText":"' . esc_attr( $primary_label ) . '","buttonUrl":"' . esc_url( $primary_url ) . '","className":"wp-theme-home-cta wp-theme-home-cta--bbuilder"} /-->';
@@ -806,3 +806,69 @@ add_action( 'admin_init', 'wpbb_child_381043_refresh_media_once', 130 );
  */
 require_once __DIR__ . '/inc/lms-suite.php';
 require_once __DIR__ . '/inc/sector-consistency.php';
+
+// v3.8.10.64 shared BBuilder/demo consistency layer.
+require_once get_stylesheet_directory() . '/inc/bbuilder-system-v62.php';
+
+/**
+ * v3.8.10.64 PWA endpoint hardening.
+ *
+ * The parent theme links to ?wpbb-pwa=manifest and registers
+ * ?wpbb-pwa=service-worker. Serve those endpoints before the normal template
+ * loader so browsers always receive the expected MIME type and valid payload.
+ * The service worker intentionally has no fetch handler: this prevents stale
+ * worker-cached ES modules from causing Chromium cross-world preload warnings.
+ */
+if ( ! function_exists( 'wpbb_child_381063_serve_pwa_endpoint' ) ) {
+    function wpbb_child_381063_serve_pwa_endpoint() {
+        if ( empty( $_GET['wpbb-pwa'] ) ) return;
+        $mode = sanitize_key( wp_unslash( $_GET['wpbb-pwa'] ) );
+        if ( ! in_array( $mode, array( 'manifest', 'service-worker' ), true ) ) return;
+
+        while ( ob_get_level() ) {
+            @ob_end_clean();
+        }
+        nocache_headers();
+        header( 'X-Content-Type-Options: nosniff' );
+
+        if ( 'manifest' === $mode ) {
+            header( 'Content-Type: application/manifest+json; charset=UTF-8' );
+            $name = trim( (string) get_bloginfo( 'name' ) );
+            if ( '' === $name ) $name = 'WP Base';
+            $scope = (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH );
+            if ( '' === $scope ) $scope = '/';
+            $icons = array();
+            foreach ( array( 192, 512 ) as $size ) {
+                $file = get_stylesheet_directory() . '/assets/icons/icon-' . $size . '.png';
+                if ( is_readable( $file ) ) {
+                    $icons[] = array(
+                        'src' => get_stylesheet_directory_uri() . '/assets/icons/icon-' . $size . '.png',
+                        'sizes' => $size . 'x' . $size,
+                        'type' => 'image/png',
+                        'purpose' => 'any maskable',
+                    );
+                }
+            }
+            echo wp_json_encode( array(
+                'name' => $name,
+                'short_name' => function_exists( 'mb_substr' ) ? mb_substr( $name, 0, 24 ) : substr( $name, 0, 24 ),
+                'start_url' => home_url( '/' ),
+                'scope' => $scope,
+                'display' => 'standalone',
+                'background_color' => '#ffffff',
+                'theme_color' => '#3155D9',
+                'icons' => $icons,
+            ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+            exit;
+        }
+
+        header( 'Content-Type: application/javascript; charset=UTF-8' );
+        header( 'Service-Worker-Allowed: /' );
+        echo "self.addEventListener('install',function(event){self.skipWaiting();});\n";
+        echo "self.addEventListener('activate',function(event){event.waitUntil((async function(){try{var keys=await caches.keys();await Promise.all(keys.filter(function(k){return /^(wpbb|wp-theme|wpbase)/i.test(k);}).map(function(k){return caches.delete(k);}));}catch(e){}await self.clients.claim();})());});\n";
+        exit;
+    }
+    add_action( 'template_redirect', 'wpbb_child_381063_serve_pwa_endpoint', -9999 );
+}
+// v3.8.10.75 structural/media/Woo repair.
+require_once get_stylesheet_directory() . '/inc/v75-suite.php';
