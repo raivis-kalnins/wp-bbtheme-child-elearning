@@ -1,3 +1,56 @@
+## 3.8.11.07
+- Final shared AJAX search, WooCommerce route, Jobs grid/captcha and search colour repair.
+
+## 3.8.11.05
+- Replaced the mobile navigation runtime with an isolated cloned drawer so legacy Jobs/menu scripts cannot clip or blank the menu.
+- Expanded Privacy, Terms and Cookies content to the full site grid and removed nested Bootstrap offsets/gutters.
+- Aligned Jobs contact content to the common site grid without the extra left inset.
+- Reworked WooCommerce archive filters, product-card media, My Account, cart/checkout and address layouts.
+- Moved homepage Latest thinking / View all actions below the article cards and centred them.
+
+# 3.8.11.01
+
+- Normalised sector accent colour application and cross-section alignment.
+- Reduced Privacy/Terms page whitespace and restored proper section/HR spacing.
+
+## 3.8.11.00
+- WP BBuilder is the sole cookie-consent UI; parent-theme cookie banner/settings are suppressed.
+- Fixed Jobs hero metric overlap regression and improved hero image scale.
+- Tightened sector colours, hero treatment, branding, footer and mobile submenu controls.
+- Refreshed Appearance > Themes preview screenshot from the approved premium preview sheet.
+
+## 3.8.10.83
+- Replaced the WordPress theme preview with the approved Jobs-aligned premium screenshot.
+- Added the shared premium hero, metrics, card, finder, footer and dark-mode presentation layer.
+- Refreshes only Starter Setup-managed demo pages/media and re-syncs managed Polylang demo translations.
+- Keeps each sector palette and content model while normalising visual quality across the 15-theme suite.
+
+## 3.8.10.82
+- Aligns header, hero, section width/rhythm, cards, forms, newsletter and footer across the sector suite while preserving this theme's own palette and media.
+- Removes inherited BBuilder/Bootstrap blue from buttons, blog filters and cookie actions by inheriting the active sector colour through BBuilder 5.6.9's option filter.
+- Styles BBuilder contact-form hCaptcha consistently when the global hCaptcha setting is enabled.
+- Performs a one-time cleanup limited to theme-managed demo pages: canonical repair/media sync, stale managed-page revision pruning, and generated auto-draft cleanup.
+- Normalises the WordPress theme-card screenshot to the suite's 1200x900 RGB format.
+
+## 3.8.10.80
+
+## 3.8.10.81
+- Keeps Theme Settings saves and WordPress theme update/upload requests responsive by pausing legacy child-owned demo/media migration callbacks for those interactive requests.
+- Keeps the working 3.8.10.80 Frontend Password Protection controls unchanged.
+- Parent theme is unchanged.
+
+- Finalises Frontend Password Protection controls in Settings → Theme Settings → General.
+- Creates the Enable/Disable checkbox and Change Password input after ACF renders the General tab, preventing ACF Message-field sanitisation from stripping the controls.
+- Save protection settings now updates the shared protection state/password through AJAX without changing the parent theme.
+- Keeps the existing suite-wide frontend gate behaviour and visitor cookie invalidation.
+
+## 3.8.10.79
+
+- Fixes Frontend Password Protection controls inside Settings → Theme Settings → General.
+- Removes the invalid nested admin form; Enable/Disable and Change Password now save via the main Theme Settings form or the dedicated Save protection settings button.
+- Keeps protection state/password suite-wide when switching maintained child themes.
+- Parent theme is unchanged.
+
 ## 3.8.10.74
 
 - Suite-wide spacing, directory-card and header-action alignment cleanup.
