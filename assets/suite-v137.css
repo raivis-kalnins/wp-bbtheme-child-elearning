@@ -1,0 +1,157 @@
+/* 3.8.11.37 non-destructive alignment and duplicate cleanup. */
+:root{
+  --wpbb-v136-shell:1320px;
+  --wpbb-v137-shell:1320px;
+  --wpbb-v137-pad:24px;
+  --wpbb-v137-gap:24px;
+  --wpbb-v137-line:#dde5ee;
+  --wpbb-v137-shadow:0 10px 28px rgba(15,35,69,.07);
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-hidden{display:none!important}
+
+/* Restore the canonical content grid used by the maintained demo sections. */
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-align-section:not(.wpbb-v137-hero-shell):not(.wpbb-v136-hero-shell)>.container,
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-align-section:not(.wpbb-v137-hero-shell):not(.wpbb-v136-hero-shell)>.wp-block-group__inner-container{
+  box-sizing:border-box!important;
+  width:min(calc(100% - (var(--wpbb-v137-pad) * 2)),var(--wpbb-v137-shell))!important;
+  max-width:var(--wpbb-v137-shell)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Native BBuilder card rows: keep editable cards, own only geometry. */
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid{
+  box-sizing:border-box!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:22px!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch!important;
+  --bs-gutter-x:0!important;
+  --bs-gutter-y:0!important;
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid>.wpbb-v137-grid-cell{
+  box-sizing:border-box!important;
+  display:flex!important;
+  float:none!important;
+  flex:none!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid>.wpbb-v137-grid-cell>*{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+}
+@media(min-width:720px){
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid.wpbb-v137-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid:is(.wpbb-v137-cols-3,.wpbb-v137-cols-4){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(min-width:1040px){
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid.wpbb-v137-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-grid.wpbb-v137-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+
+/* Process: style the saved cards in place rather than replacing editor content. */
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-section{overflow:visible!important}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-grid{
+  box-sizing:border-box!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:20px!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:26px 0 0!important;
+  padding:0!important;
+  align-items:stretch!important;
+  --bs-gutter-x:0!important;
+  --bs-gutter-y:0!important;
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-grid>.wpbb-v137-grid-cell{
+  box-sizing:border-box!important;
+  display:flex!important;
+  float:none!important;
+  flex:none!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card{
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:172px!important;
+  height:100%!important;
+  margin:0!important;
+  padding:24px!important;
+  border:1px solid var(--wpbb-v137-line)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  box-shadow:var(--wpbb-v137-shadow)!important;
+  clip-path:none!important;
+  -webkit-clip-path:none!important;
+  transform:none!important;
+  overflow:hidden!important;
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card::before,
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card::after{content:none!important;display:none!important}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card :is(h2,h3,h4){margin-top:0!important}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card p:last-child{margin-bottom:0!important}
+@media(min-width:760px){
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-process-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}
+}
+
+/* Stats/fun facts: deterministic 2/4 columns with no stale Bootstrap offsets. */
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-stats-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  --bs-gutter-x:0!important;
+  --bs-gutter-y:0!important;
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-stats-grid>.wpbb-v137-grid-cell{
+  box-sizing:border-box!important;float:none!important;display:block!important;flex:none!important;width:auto!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important
+}
+html body.wpbb-v137 #wp-theme-main .wpbb-v137-stat-card{
+  box-sizing:border-box!important;width:100%!important;max-width:none!important;min-width:0!important;height:100%!important;margin:0!important;border-radius:14px!important;overflow:hidden!important
+}
+@media(min-width:900px){html body.wpbb-v137 #wp-theme-main .wpbb-v137-stats-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important}}
+
+/* Keep finder/catalogue cards visible; only exact duplicate hero finders are hidden by JS. */
+html body.wpbb-v137 #wp-theme-main :is(.wp-theme-sector-finder,.wp-theme-home-product-catalogue,.wp-theme-products-section){max-height:none!important;overflow:visible!important}
+
+/* Small screens use the same 18px edge as the core design system. */
+@media(max-width:759px){
+  :root{--wpbb-v137-pad:18px}
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-align-section:not(.wpbb-v137-hero-shell):not(.wpbb-v136-hero-shell)>.container,
+  html body.wpbb-v137 #wp-theme-main .wpbb-v137-align-section:not(.wpbb-v137-hero-shell):not(.wpbb-v136-hero-shell)>.wp-block-group__inner-container{
+    width:min(calc(100% - 36px),var(--wpbb-v137-shell))!important;
+  }
+  html body.wpbb-v137 #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__content,.wp-theme-hero__content,.wpbb-hero-content){padding-left:18px!important;padding-right:18px!important}
+}
+
+/* Dark mode: do not force light cards when the suite is intentionally dark. */
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card{
+  border-color:#2a414f!important;background:#112532!important;color:#dce7ec!important
+}
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card :is(h2,h3,h4){color:#f5f8fa!important}
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v137 #wp-theme-main .wpbb-v137-process-card p{color:#c6d1d8!important}

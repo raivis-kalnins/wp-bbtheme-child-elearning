@@ -1,0 +1,241 @@
+/* E-Learning 3.8.11.49 - Events-reference rail, hero spacing and demo-media finish. */
+:root{
+  --wpbb-v149-left:max(28px,calc((100vw - 1440px)/2));
+  --wpbb-v149-right:max(28px,calc((100vw - 1440px)/2));
+  --wpbb-v149-gap:24px;
+  --wpbb-v149-section-y:56px;
+  --wpbb-v149-adjacent-y:44px;
+  --wpbb-v149-ink:#102c57;
+  --wpbb-v149-copy:#5f6b79;
+  --wpbb-v149-line:#dde5ee;
+  --wpbb-v149-accent:#8750ed;
+}
+html body.wpbb-v149-home #wp-theme-main *,
+html body.wpbb-v149-home #wp-theme-main *::before,
+html body.wpbb-v149-home #wp-theme-main *::after{box-sizing:border-box}
+
+/* -------------------------------------------------------------------------
+   Events-theme ownership pattern: the top-level section owns the horizontal
+   rail; its immediate container becomes 100%. Nested widgets never receive
+   page-level gutters. The JS only measures the header rail variables.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v149-home #wp-theme-main :is(
+  .wp-theme-section-shell,
+  .wpbb-v67-section-shell,
+  .wp-theme-home-stats,
+  .wpbb-sector-proof-band,
+  .wp-theme-insights-section,
+  .wp-theme-blog-preview-section
+):not(.wp-theme-sector-hero):not(.wp-theme-hero){
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-top:var(--wpbb-v149-section-y)!important;
+  padding-bottom:var(--wpbb-v149-section-y)!important;
+  padding-left:var(--wpbb-v149-left)!important;
+  padding-right:var(--wpbb-v149-right)!important;
+}
+/* As in Events v140, nested section shells never become a second horizontal owner. */
+html body.wpbb-v149-home #wp-theme-main :is(.wp-theme-section-shell,.wpbb-v67-section-shell):not(.wp-theme-sector-hero):not(.wp-theme-hero)
+  :is(.wp-theme-section-shell,.wpbb-v67-section-shell):not(.wp-theme-sector-hero):not(.wp-theme-hero){
+  padding-left:0!important;
+  padding-right:0!important;
+}
+html body.wpbb-v149-home #wp-theme-main :is(
+  .wp-theme-section-shell,
+  .wpbb-v67-section-shell,
+  .wp-theme-home-stats,
+  .wpbb-sector-proof-band,
+  .wp-theme-insights-section,
+  .wp-theme-blog-preview-section
+):not(.wp-theme-sector-hero):not(.wp-theme-hero) > :is(
+  .container,.container-fluid,.wpbb-v67-section-inner,.wp-block-group__inner-container,.wp-theme-blog-preview-container
+){
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* v148 constrained selected child containers to another 1440px shell. Remove
+   that second owner so the Events-style outer rail is the only rail. */
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section > :is(.row,.wpbb-row),
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section > :is(.container,.container-fluid,.wpbb-v67-section-inner),
+html body.wpbb-v149-home #wp-theme-main :is(.wp-theme-services-section,.wp-theme-about-section,.wp-theme-industries-section,.wp-theme-cases-section,.wp-theme-case-studies-section,.wp-theme-gallery-section,.wp-theme-process-section,.wp-theme-faq-section,.wp-theme-insights-section) > :is(.container,.container-fluid,.wpbb-v67-section-inner){
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+/* Heading columns and the rows below them use the same starting edge. */
+html body.wpbb-v149-home #wp-theme-main :is(
+  .wp-theme-services-section,.wp-theme-industries-section,.wp-theme-cases-section,
+  .wp-theme-case-studies-section,.wp-theme-gallery-section,.wp-theme-process-section,
+  .wp-theme-faq-section,.wp-theme-insights-section
+) .wp-theme-section-heading{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+html body.wpbb-v149-home #wp-theme-main :is(.row,.wpbb-row).wp-theme-section-heading{
+  --bs-gutter-x:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+html body.wpbb-v149-home #wp-theme-main :is(.row,.wpbb-row).wp-theme-section-heading > :is(.wpbb-column,.wp-block-wpbb-column,[class^="col-"],[class*=" col-"]){
+  flex:0 0 100%!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+
+/* Events v140 cadence: adjacent top-level sections do not double-stack whitespace. */
+html body.wpbb-v149-home #wp-theme-main > :is(.wp-theme-section-shell,.wpbb-v67-section-shell):not(.wp-theme-sector-hero):not(.wp-theme-hero)
++ :is(.wp-theme-section-shell,.wpbb-v67-section-shell):not(.wp-theme-sector-hero):not(.wp-theme-hero){
+  padding-top:var(--wpbb-v149-adjacent-y)!important;
+}
+html body.wpbb-v149-home #wp-theme-main > :is(.wp-theme-section-shell,.wpbb-v67-section-shell):not(.wp-theme-sector-hero):not(.wp-theme-hero)
++ :is(.wp-theme-home-stats,.wpbb-sector-proof-band,.wp-theme-insights-section,.wp-theme-blog-preview-section),
+html body.wpbb-v149-home #wp-theme-main > :is(.wp-theme-home-stats,.wpbb-sector-proof-band,.wp-theme-insights-section,.wp-theme-blog-preview-section)
++ :is(.wp-theme-section-shell,.wpbb-v67-section-shell,.wp-theme-home-stats,.wpbb-sector-proof-band,.wp-theme-insights-section,.wp-theme-blog-preview-section){
+  padding-top:var(--wpbb-v149-adjacent-y)!important;
+}
+
+/* -------------------------------------------------------------------------
+   Hero: remove v148's extra height/padding stretch. Keep the proven v136
+   520px geometry, but start copy on exactly the same header rail as Events.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v149-home #wp-theme-main :is(.wp-theme-sector-hero,.wp-theme-hero,.wpbb-v136-hero-shell){
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+@media(min-width:760px){
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.swiper-slide,.wpbb-swiper-slide){
+    min-height:520px!important;
+    height:520px!important;
+  }
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__content,.wp-theme-hero__content,.wpbb-hero-content){
+    box-sizing:border-box!important;
+    width:min(48%,660px)!important;
+    max-width:660px!important;
+    margin:0!important;
+    padding-top:64px!important;
+    padding-right:30px!important;
+    padding-bottom:74px!important;
+    padding-left:var(--wpbb-v149-left)!important;
+  }
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media){
+    width:72%!important;
+  }
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media)::after{
+    background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.995) 9%,rgba(255,255,255,.94) 19%,rgba(255,255,255,.72) 30%,rgba(255,255,255,.36) 40%,rgba(255,255,255,.11) 49%,rgba(255,255,255,0) 59%)!important;
+  }
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media) img{
+    object-position:center center!important;
+    filter:contrast(1.025) saturate(1.025)!important;
+  }
+}
+
+/* Partner/logo strip and finder begin on the identical rail. */
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__form{
+  width:100%!important;
+  max-width:none!important;
+}
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-grid{
+  width:100%!important;
+  max-width:none!important;
+}
+
+/* Use consistent media geometry across the refreshed demo set. */
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-card__media{
+  aspect-ratio:16/10!important;
+  overflow:hidden!important;
+  background:#eef2f6!important;
+}
+html body.wpbb-v149-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-card__media img,
+html body.wpbb-v149-home #wp-theme-main .wp-theme-about-section img,
+html body.wpbb-v149-home #wp-theme-main .wp-theme-gallery-section img,
+html body.wpbb-v149-home #wp-theme-main .wp-theme-insights-section .wp-theme-blog-card img{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  filter:none!important;
+}
+html body.wpbb-v149-home #wp-theme-main .wp-theme-about-section .wp-theme-sector-media-text__media img{
+  aspect-ratio:16/10!important;
+  border-radius:16px!important;
+}
+html body.wpbb-v149-home #wp-theme-main .wp-theme-insights-section .wp-theme-blog-card img{
+  aspect-ratio:16/10!important;
+}
+
+/* Keep the three proof cards and the lower three-column rows deterministic. */
+html body.wpbb-v149-home #wp-theme-main .wpbb-v148-proof-grid,
+html body.wpbb-v149-home #wp-theme-main .wpbb-sector-proof-band :is(.row,.wpbb-row):has(.wpbb-sector-proof-card,.wpbb-v147-proof-card,.wpbb-v148-proof-card),
+html body.wpbb-v149-home #wp-theme-main :is(.wp-theme-case-grid,.wp-theme-sector-process-grid,.wpbb-v145-process-grid){
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:24px!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  align-items:stretch!important;
+}
+
+@media(max-width:1199.98px){
+  :root{--wpbb-v149-left:24px;--wpbb-v149-right:24px}
+}
+@media(max-width:991.98px){
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v148-proof-grid,
+  html body.wpbb-v149-home #wp-theme-main .wpbb-sector-proof-band :is(.row,.wpbb-row):has(.wpbb-sector-proof-card,.wpbb-v147-proof-card,.wpbb-v148-proof-card),
+  html body.wpbb-v149-home #wp-theme-main :is(.wp-theme-case-grid,.wp-theme-sector-process-grid,.wpbb-v145-process-grid){
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:20px!important;
+  }
+}
+@media(max-width:759.98px){
+  :root{--wpbb-v149-left:18px;--wpbb-v149-right:18px}
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.swiper-slide,.wpbb-swiper-slide){height:auto!important;min-height:0!important}
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__content,.wp-theme-hero__content,.wpbb-hero-content){
+    width:100%!important;max-width:none!important;padding:36px 18px 28px!important;
+  }
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media){
+    position:relative!important;width:100%!important;height:270px!important;
+  }
+}
+@media(max-width:575.98px){
+  html body.wpbb-v149-home #wp-theme-main .wpbb-v148-proof-grid,
+  html body.wpbb-v149-home #wp-theme-main .wpbb-sector-proof-band :is(.row,.wpbb-row):has(.wpbb-sector-proof-card,.wpbb-v147-proof-card,.wpbb-v148-proof-card),
+  html body.wpbb-v149-home #wp-theme-main :is(.wp-theme-case-grid,.wp-theme-sector-process-grid,.wpbb-v145-process-grid){
+    grid-template-columns:1fr!important;gap:16px!important;
+  }
+}

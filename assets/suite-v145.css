@@ -1,0 +1,165 @@
+/* E-Learning 3.8.11.45 - focused live homepage repair. */
+:root{
+  --wpbb-v145-shell:1320px;
+  --wpbb-v145-pad:24px;
+  --wpbb-v145-gap:24px;
+  --wpbb-v145-accent:#8750ed;
+  --wpbb-v145-ink:#102c57;
+  --wpbb-v145-copy:#5f6b79;
+  --wpbb-v145-line:#dde5ee;
+  --wpbb-v145-soft:#f6f7fb;
+  --wpbb-v145-shadow:0 10px 28px rgba(15,35,69,.07);
+}
+html body.wpbb-v145-home #wp-theme-main *,
+html body.wpbb-v145-home #wp-theme-main *::before,
+html body.wpbb-v145-home #wp-theme-main *::after{box-sizing:border-box}
+
+/* Finder: exactly the same maintained content rail as the rest of the page. */
+html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section{
+  width:100%!important;max-width:none!important;margin:0!important;overflow:visible!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section > :is(.container,.wpbb-v67-section-inner),
+html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section > .wpbb-v67-section-inner > .container{
+  box-sizing:border-box!important;
+  width:min(calc(100% - (var(--wpbb-v145-pad) * 2)),var(--wpbb-v145-shell))!important;
+  max-width:var(--wpbb-v145-shell)!important;
+  margin-left:auto!important;margin-right:auto!important;
+  padding-left:0!important;padding-right:0!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder{
+  width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__intro{
+  max-width:820px!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__intro h2{
+  max-width:780px!important;font-size:clamp(38px,3.2vw,56px)!important;line-height:1.02!important;
+}
+
+/* Hero: use the bundled 2560px sources and keep the fade out of the face. */
+@media(min-width:760px){
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media){
+    width:68%!important;background:#eef2f5!important;
+  }
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media)::after{
+    background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.98) 8%,rgba(255,255,255,.80) 14%,rgba(255,255,255,.42) 20%,rgba(255,255,255,.12) 26%,rgba(255,255,255,0) 32%)!important;
+  }
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media) img{
+    object-position:center center!important;filter:none!important;image-rendering:auto!important;
+  }
+}
+
+/* The Solutions heading should match the other section headings, not behave
+   like a separate oversized text block. */
+html body.wpbb-v145-home #wp-theme-main .wp-theme-industries-section .wp-theme-section-heading h2,
+html body.wpbb-v145-home #wp-theme-main .wp-theme-industries-section h2{
+  max-width:820px!important;margin:0 0 30px!important;padding:0!important;background:transparent!important;
+  color:var(--wpbb-v145-ink)!important;font-size:clamp(30px,2.65vw,44px)!important;line-height:1.06!important;
+  letter-spacing:-.035em!important;
+}
+
+/* Three real proof cards: JS marks the actual common parent so BBuilder's
+   optional container wrapper cannot force them into a vertical stack. */
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-proof-grid{
+  --bs-gutter-x:0!important;--bs-gutter-y:0!important;
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important;
+  width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-proof-grid > .wpbb-v145-proof-cell{
+  display:flex!important;float:none!important;clear:none!important;flex:none!important;
+  width:auto!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-proof-card{
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+  width:100%!important;max-width:none!important;min-width:0!important;height:100%!important;min-height:156px!important;
+  margin:0!important;padding:22px!important;border:1px solid var(--wpbb-v145-line)!important;
+  border-radius:14px!important;background:#fff!important;box-shadow:var(--wpbb-v145-shadow)!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-proof-card :is(.card,.card-body,.wpbb-icon-card__inner,.wpbb-icon-card__content){
+  width:100%!important;max-width:none!important;min-width:0!important;height:auto!important;margin:0!important;
+  background:transparent!important;box-shadow:none!important;
+}
+
+/* Process: one card per authored step, numbered chip inside each card. */
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-grid{
+  --bs-gutter-x:0!important;--bs-gutter-y:0!important;
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important;
+  width:100%!important;max-width:none!important;min-width:0!important;margin:26px 0 0!important;padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-grid > .wpbb-v145-process-cell{
+  position:relative!important;display:flex!important;float:none!important;clear:none!important;flex:none!important;
+  width:auto!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;
+  border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-empty-process-cell{display:none!important}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card{
+  position:relative!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  width:100%!important;max-width:none!important;min-width:0!important;height:100%!important;min-height:164px!important;
+  margin:0!important;padding:22px!important;border:1px solid var(--wpbb-v145-line)!important;
+  border-radius:14px!important;background:#fff!important;box-shadow:var(--wpbb-v145-shadow)!important;
+  clip-path:none!important;-webkit-clip-path:none!important;mask:none!important;-webkit-mask:none!important;overflow:hidden!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card::before,
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card::after{content:none!important;display:none!important}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card .wp-theme-process-badge,
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card .wpbb-badge{
+  position:static!important;inset:auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:36px!important;min-width:36px!important;height:30px!important;min-height:30px!important;margin:0 0 18px!important;padding:0 9px!important;
+  border:1px solid rgba(135,80,237,.18)!important;border-radius:9px!important;background:rgba(135,80,237,.10)!important;
+  color:var(--wpbb-v145-accent)!important;box-shadow:none!important;transform:none!important;line-height:1!important;font-weight:800!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card h3{
+  margin:0 0 10px!important;color:var(--wpbb-v145-ink)!important;font-size:20px!important;line-height:1.2!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card p{
+  margin:0!important;color:var(--wpbb-v145-copy)!important;font-size:15px!important;line-height:1.55!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card :is(.wp-block-group__inner-container,.card,.card-body){
+  width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+
+/* Gallery: valid local images are also painted as media backgrounds so an
+   older swiper/gallery script cannot leave the first slides as blank gradients. */
+html body.wpbb-v145-home #wp-theme-main .wp-theme-gallery-section .wpbb-v145-gallery-slide{
+  position:relative!important;min-height:250px!important;height:auto!important;overflow:hidden!important;
+  border-radius:14px!important;background:#eef2f6!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wp-theme-gallery-section .wpbb-v145-gallery-media{
+  position:absolute!important;z-index:0!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;
+  overflow:hidden!important;border-radius:14px!important;background-color:#eef2f6!important;
+  background-image:var(--wpbb-v145-gallery-image)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wp-theme-gallery-section .wpbb-v145-gallery-media img{
+  display:block!important;width:100%!important;height:100%!important;max-width:none!important;min-height:100%!important;
+  object-fit:cover!important;object-position:center center!important;opacity:1!important;visibility:visible!important;filter:none!important;transform:none!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wp-theme-gallery-section .wpbb-v145-gallery-media::after{
+  content:""!important;display:block!important;position:absolute!important;z-index:1!important;inset:38% 0 0!important;
+  background:linear-gradient(180deg,rgba(9,22,38,0),rgba(9,22,38,.72))!important;pointer-events:none!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wp-theme-gallery-section .wpbb-v145-gallery-slide :is(.wpbb-swiper-slide__content,.swiper-slide__content){
+  position:absolute!important;z-index:2!important;left:0!important;right:0!important;bottom:0!important;margin:0!important;padding:18px!important;
+  color:#fff!important;background:transparent!important;
+}
+html body.wpbb-v145-home #wp-theme-main .wp-theme-gallery-section .wpbb-v145-gallery-slide :is(.wpbb-swiper-slide__title,h2,h3,h4){color:#fff!important}
+
+@media(max-width:991.98px){
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v145-proof-grid,
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+}
+@media(max-width:575.98px){
+  :root{--wpbb-v145-pad:18px}
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v145-proof-grid,
+  html body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-grid{grid-template-columns:1fr!important;gap:16px!important}
+  html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder{padding:20px!important}
+  html body.wpbb-v145-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__intro h2{font-size:clamp(32px,9vw,44px)!important}
+}
+
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v145-home #wp-theme-main :is(.wpbb-v145-proof-card,.wpbb-v145-process-card){
+  border-color:#2a414f!important;background:#112532!important;color:#dce7ec!important;
+}
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v145-home #wp-theme-main .wpbb-v145-process-card :is(h2,h3,h4){color:#f5f8fa!important}

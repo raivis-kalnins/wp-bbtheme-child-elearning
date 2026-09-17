@@ -1,0 +1,367 @@
+/*
+ * E-Learning 3.8.11.48 - canonical homepage rail and final marked-area repair.
+ *
+ * This layer intentionally does not create a new global ownership system.
+ * It only owns the front-page rail and the exact components verified in the
+ * supplied DB/screenshot: hero, course finder, stats, proof cards, gallery,
+ * process headings/cards and editorial heading rows.
+ */
+:root{
+  --wpbb-v148-shell:1440px;
+  --wpbb-v148-pad:28px;
+  --wpbb-v148-gap:24px;
+  --wpbb-v148-accent:#8750ed;
+  --wpbb-v148-ink:#102c57;
+  --wpbb-v148-copy:#5f6b79;
+  --wpbb-v148-line:#dde5ee;
+  --wpbb-v148-soft:#f6f7fb;
+  --wpbb-v148-shadow:0 10px 28px rgba(15,35,69,.07);
+}
+
+html body.wpbb-v148-home #wp-theme-main *,
+html body.wpbb-v148-home #wp-theme-main *::before,
+html body.wpbb-v148-home #wp-theme-main *::after{box-sizing:border-box}
+
+/* -------------------------------------------------------------------------
+   One homepage rail: match the original 1440px sector/header/footer canvas.
+   Only direct BBuilder section containers are touched, never nested widgets.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v148-home #wp-theme-main :is(
+  .wpbb-courses-finder-section,
+  .wp-theme-services-section,
+  .wp-theme-about-section,
+  .wp-theme-industries-section,
+  .wp-theme-home-stats,
+  .wpbb-sector-proof-band,
+  .wp-theme-cases-section,
+  .wp-theme-gallery-section,
+  .wp-theme-process-section,
+  .wp-theme-faq-section,
+  .wp-theme-insights-section
+) > :is(.container,.container-fluid,.wpbb-v67-section-inner){
+  box-sizing:border-box!important;
+  width:min(calc(100% - (var(--wpbb-v148-pad) * 2)),var(--wpbb-v148-shell))!important;
+  max-width:var(--wpbb-v148-shell)!important;
+  min-width:0!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* Some BBuilder bootstrap-div builds insert the row directly. Keep the row on
+   the same rail without applying page gutters to the finder widget itself. */
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section > :is(.row,.wpbb-row){
+  box-sizing:border-box!important;
+  width:min(calc(100% - (var(--wpbb-v148-pad) * 2)),var(--wpbb-v148-shell))!important;
+  max-width:var(--wpbb-v148-shell)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Headings and their card rows share the exact same left/right edge. */
+html body.wpbb-v148-home #wp-theme-main :is(
+  .wp-theme-services-section,
+  .wp-theme-industries-section,
+  .wp-theme-cases-section,
+  .wp-theme-gallery-section,
+  .wp-theme-process-section,
+  .wp-theme-insights-section
+) .wp-theme-section-heading{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+html body.wpbb-v148-home #wp-theme-main :is(
+  .wp-theme-services-section,
+  .wp-theme-industries-section,
+  .wp-theme-cases-section,
+  .wp-theme-gallery-section,
+  .wp-theme-process-section,
+  .wp-theme-insights-section
+) .wp-theme-section-heading > :is(.wpbb-column,.wp-block-wpbb-column,[class^="col-"],[class*=" col-"]){
+  flex:0 0 100%!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+/* -------------------------------------------------------------------------
+   Hero: same horizontal rail as header, with explicit top/bottom breathing room.
+   ------------------------------------------------------------------------- */
+@media(min-width:760px){
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v136-hero :is(.swiper-slide,.wpbb-swiper-slide){
+    min-height:520px!important;
+    height:520px!important;
+  }
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__content,.wp-theme-hero__content,.wpbb-hero-content){
+    width:min(49%,720px)!important;
+    max-width:720px!important;
+    padding-top:76px!important;
+    padding-right:34px!important;
+    padding-bottom:92px!important;
+    padding-left:max(var(--wpbb-v148-pad),calc((100vw - var(--wpbb-v148-shell))/2 + 12px))!important;
+  }
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media){
+    width:71%!important;
+  }
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__media,.wp-theme-hero__media,.wpbb-hero-media)::after{
+    background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.99) 7%,rgba(255,255,255,.86) 14%,rgba(255,255,255,.52) 21%,rgba(255,255,255,.19) 28%,rgba(255,255,255,0) 35%)!important;
+  }
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-v136-hero-bullet.is-active{background:var(--wpbb-v148-accent)!important}
+
+/* -------------------------------------------------------------------------
+   Finder: full native width inside the page rail. Never treat this nested
+   component as another page-level aligned section.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder.wpbb-v137-align-section > :is(.container,.wp-block-group__inner-container,.wpbb-v67-section-inner),
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder > :is(.container,.wp-block-group__inner-container,.wpbb-v67-section-inner){
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section > :is(.container,.container-fluid,.wpbb-v67-section-inner) > :is(.row,.wpbb-row),
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section > :is(.container,.container-fluid,.wpbb-v67-section-inner) > :is(.row,.wpbb-row) > :is(.wpbb-column,.wp-block-wpbb-column,[class^="col-"],[class*=" col-"]){
+  max-width:100%!important;
+  min-width:0!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section > :is(.container,.container-fluid,.wpbb-v67-section-inner) > :is(.row,.wpbb-row) > :is(.wpbb-column,.wp-block-wpbb-column,[class^="col-"],[class*=" col-"]){
+  flex:0 0 100%!important;
+  width:100%!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__form{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:24px!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section :is(
+  .wp-theme-item-gallery-card__open,.wp-theme-item-gallery-card__thumbs,.wp-theme-item-gallery-card__thumb,.wp-theme-item-gallery-card__more,
+  .wp-theme-item-gallery__open,.wp-theme-item-gallery__thumbs,.wp-theme-item-gallery__thumb,.wp-theme-item-gallery__more
+){display:none!important}
+
+/* -------------------------------------------------------------------------
+   Stats: make the authored values visibly use the E-Learning purple.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v148-home #wp-theme-main .wp-theme-home-stats :is(
+  .wpbb-fun-fact__number,.wp-theme-sector-proof__number,.wp-theme-sector-proof__item h2,
+  .wp-theme-sector-proof__item h3,.wp-theme-sector-proof__item strong
+){
+  color:var(--wpbb-v148-accent)!important;
+  opacity:1!important;
+  font-weight:800!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-home-stats .wp-theme-sector-proof__item{
+  border-color:var(--wpbb-v148-line)!important;
+  background:#fff!important;
+}
+
+/* -------------------------------------------------------------------------
+   Proof cards: the DB has exactly three cards. v148 marks their real common
+   row directly, so no :has() support or guessed wrapper is required.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-grid{
+  --bs-gutter-x:0!important;
+  --bs-gutter-y:0!important;
+  box-sizing:border-box!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:24px!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-grid > .wpbb-v148-proof-cell{
+  box-sizing:border-box!important;
+  display:flex!important;
+  float:none!important;
+  clear:none!important;
+  flex:none!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card{
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:172px!important;
+  height:100%!important;
+  margin:0!important;
+  padding:24px!important;
+  border:1px solid var(--wpbb-v148-line)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  box-shadow:var(--wpbb-v148-shadow)!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card .wpbb-v148-proof-icon{
+  display:grid!important;
+  place-items:center!important;
+  width:40px!important;
+  height:40px!important;
+  margin:0 0 18px!important;
+  border-radius:11px!important;
+  background:rgba(135,80,237,.10)!important;
+  color:var(--wpbb-v148-accent)!important;
+  font-size:22px!important;
+  line-height:1!important;
+  font-weight:700!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card h3{
+  margin:0 0 10px!important;
+  color:var(--wpbb-v148-ink)!important;
+  font-size:20px!important;
+  line-height:1.2!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card p{
+  margin:0!important;
+  color:var(--wpbb-v148-copy)!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+
+/* -------------------------------------------------------------------------
+   Gallery: fixed 16:10 media boxes with explicit image visibility. v148 JS
+   supplies four verified workshop/learning images from the Events reference.
+   ------------------------------------------------------------------------- */
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section :is(.swiper,.wpbb-swiper--gallery){overflow:hidden!important}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section .wpbb-v148-gallery-slide{
+  position:relative!important;
+  min-width:0!important;
+  height:auto!important;
+  min-height:250px!important;
+  overflow:hidden!important;
+  border-radius:16px!important;
+  background:#e9eef3!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section .wpbb-v148-gallery-media{
+  position:absolute!important;
+  z-index:0!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:hidden!important;
+  border-radius:16px!important;
+  background:#e9eef3 var(--wpbb-v148-gallery-image) center/cover no-repeat!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section .wpbb-v148-gallery-media img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  max-width:none!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+  transform:none!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section .wpbb-v148-gallery-media::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:42% 0 0!important;
+  background:linear-gradient(180deg,rgba(10,22,38,0),rgba(10,22,38,.72))!important;
+  pointer-events:none!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section .wpbb-v148-gallery-slide :is(.wpbb-swiper-slide__content,.swiper-slide__content){
+  position:absolute!important;
+  z-index:2!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  margin:0!important;
+  padding:18px!important;
+  background:transparent!important;
+  color:#fff!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-gallery-section .wpbb-v148-gallery-slide :is(h2,h3,h4,.wpbb-swiper-slide__title){color:#fff!important}
+
+/* Keep process/cases/editorial rows on the same desktop-sized rail and reset
+   any stale Bootstrap widths after the wider canvas change. */
+html body.wpbb-v148-home #wp-theme-main :is(.wp-theme-case-grid,.wp-theme-sector-process-grid){
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:24px!important;
+}
+html body.wpbb-v148-home #wp-theme-main .wp-theme-sector-process-grid > :is(.wpbb-column,.wp-block-wpbb-column,[class^="col-"],[class*=" col-"]),
+html body.wpbb-v148-home #wp-theme-main .wp-theme-case-grid > :is(.wpbb-column,.wp-block-wpbb-column,[class^="col-"],[class*=" col-"]){
+  float:none!important;
+  flex:none!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+}
+html body.wpbb-v148-home #wp-theme-main :is(.wp-theme-process-section,.wp-theme-insights-section,.wp-theme-gallery-section) .wp-theme-section-heading h2{
+  max-width:900px!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+
+@media(max-width:1199.98px){
+  :root{--wpbb-v148-pad:24px}
+}
+@media(max-width:991.98px){
+  html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__form{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+  html body.wpbb-v148-home #wp-theme-main :is(.wp-theme-case-grid,.wp-theme-sector-process-grid){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+}
+@media(max-width:759.98px){
+  :root{--wpbb-v148-pad:18px}
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v136-hero :is(.wpbb-swiper-slide__content,.wp-theme-hero__content,.wpbb-hero-content){
+    width:100%!important;
+    max-width:none!important;
+    padding:44px 18px 72px!important;
+  }
+}
+@media(max-width:575.98px){
+  html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-finder__form,
+  html body.wpbb-v148-home #wp-theme-main .wpbb-courses-finder-section .wpbb-sector-grid,
+  html body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-grid,
+  html body.wpbb-v148-home #wp-theme-main :is(.wp-theme-case-grid,.wp-theme-sector-process-grid){
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+  }
+}
+
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card{
+  border-color:#2a414f!important;
+  background:#112532!important;
+  color:#dce7ec!important;
+}
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card h3{color:#f5f8fa!important}
+html:is(.is-dark-theme,[data-theme="dark"]) body.wpbb-v148-home #wp-theme-main .wpbb-v148-proof-card p{color:#c6d1d8!important}

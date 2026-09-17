@@ -533,6 +533,11 @@ function wpbbChildGalleryCardLink(card) {
 
 function wpbbChildGalleryInitCards(root = document) {
   root.querySelectorAll('.wpbb-sector-card, .wp-theme-property-card, .medicine-doctor-card').forEach((card) => {
+    // Course catalogue cards are authored single-image cards, not generic galleries.
+    if (card.closest('.wpbb-courses-finder-section')) {
+      card.dataset.wpbbChildCardGalleryReady = 'true';
+      return;
+    }
     if (card.dataset.wpbbChildCardGalleryReady === 'true') return;
     const link = wpbbChildGalleryCardLink(card);
     if (!link) return;
